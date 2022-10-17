@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/created-by: application-service
+    app.kubernetes.io/instance: devfile-node
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: devfile-node
+    app.kubernetes.io/part-of: test-application
+  name: devfile-node
+  namespace: karthik
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: devfile-node
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app.kubernetes.io/instance: devfile-node
+    spec:
+      containers:
+      - image: quay.io/karthik_jk/devfile-node
+        imagePullPolicy: Always
+        name: container-image
+        resources: {}
+status: {}
